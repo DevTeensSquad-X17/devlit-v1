@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Devlit · The Academy Awakens</title>
+  <!-- fonts: Orbitron (headlines) + Exo 2 (supporting) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,500;1,400;1,500&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- PARTICLE LAYERS -->
+  <div class="particles-layer" id="particles1"></div>
+  <div class="particles-layer" id="particles2"></div>
+
+  <!-- SCREEN 1: visible, headline raised higher -->
+  <div id="screen1" class="screen">
+    <h1 class="headline" id="headline1" tabindex="0" role="button" aria-label="Activate academy">The Academy Awakens</h1>
+    <div class="footer-italic">The future of teen builders begins here</div>
+  </div>
+
+  <!-- SCREEN 2: typing headline, button, THEN subtext -->
+  <div id="screen2" class="screen">
+    <div class="content-wrapper">
+      <!-- typing headline (top) -->
+      <div id="typed-headline"></div>
+      
+      <!-- button wrapper: contains button + subtext below it -->
+      <div class="button-wrapper">
+        <!-- CTA button -->
+        <a href="https://www.facebook.com/profile.php?id=61578285608648" class="cta-button" role="button" tabindex="0">Enter the Forge</a>
+        <!-- subtext placed below the button -->
+        <div class="subtext-italic">First missions are coming soon. Get ready to prove yourself.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="main.js"></script>
+</body>
+</html>

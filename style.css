@@ -1,0 +1,274 @@
+/* ----- RESET & GLOBAL ----- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Exo 2', Arial, sans-serif;
+  background-color: #030614;
+  color: #fff;
+}
+
+body {
+  background: url('devlit.png') center center / cover no-repeat fixed;
+  position: relative;
+}
+
+/* ----- PARTICLE BASE LAYERS (pointer-events: none) ----- */
+.particles-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+#particles1 {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+#particles2 {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.particle {
+  position: absolute;
+  bottom: -10vh;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.particle-dot {
+  width: 3px;
+  height: 3px;
+  background-color: #00BFFF;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #00bfff, 0 0 12px #00ffff;
+}
+
+.particle-bar {
+  width: 2px;
+  height: 8px;
+  background-color: #00FFE0;
+  filter: blur(1px);
+  box-shadow: 0 0 8px #00ffe0;
+  border-radius: 1px;
+}
+
+/* ----- SCREENS (z-index 2) ----- */
+.screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+
+#screen1 {
+  opacity: 1;
+  pointer-events: auto;
+  justify-content: center;
+}
+
+#screen2 {
+  opacity: 0;
+  pointer-events: auto;
+  justify-content: flex-start; 
+  padding-top: 12vh;
+}
+
+/* ----- TYPOGRAPHY & SHARED ----- */
+.headline {
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Screen 1 headline - raised higher */
+#screen1 .headline {
+  font-size: clamp(32px, 6vw, 64px);
+  color: white;
+  text-shadow: 0 0 12px #00FFFF, 0 0 25px #00FFFF, 0 0 50px #00FFFF;
+  cursor: pointer;
+  transition: text-shadow 0.3s ease;
+  pointer-events: auto;
+  outline: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  position: relative;
+  top: -5vh;
+}
+
+#screen1 .headline:hover,
+#screen1 .headline:focus-visible {
+  text-shadow: 0 0 18px #00FFFF, 0 0 35px #00FFFF, 0 0 70px #00FFFF, 0 0 90px #00bfff;
+}
+
+#screen1 .headline:focus-visible {
+  outline: 2px solid #00FFE0;
+  outline-offset: 8px;
+}
+
+.footer-italic {
+  font-style: italic;
+  font-weight: 400;
+  text-align: center;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+#screen1 .footer-italic {
+  position: absolute;
+  bottom: 8%;
+  left: 0;
+  font-size: clamp(14px, 2vw, 22px);
+  color: rgba(255,255,255,0.9);
+  text-shadow: 0 0 5px #00bfff33;
+}
+
+/* ----- SCREEN 2 ELEMENTS ----- */
+#screen2 {
+  justify-content: flex-start;
+  padding-top: 12vh;
+  padding-bottom: 5vh;
+}
+
+#typed-headline {
+  font-size: clamp(22px, 4.5vw, 44px);
+  color: white;
+  text-shadow: 0 0 8px #00bfff, 0 0 15px #00bfff66;
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
+  min-height: 3.5rem;
+  border-right: 2px solid transparent;
+  display: inline-block;
+  padding-right: 4px;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  #typed-headline {
+    white-space: normal;
+    border-right: none;
+  }
+}
+
+/* CTA button */
+.cta-button {
+  font-family: 'Exo 2', Arial, sans-serif;
+  font-size: clamp(18px, 3.5vw, 26px);
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: white;
+  background: transparent;
+  border: 2px solid rgba(0,191,255,0.9);
+  border-radius: 60px;
+  padding: 14px 32px;
+  margin-top: 8vh;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, background 0.2s;
+  box-shadow: 0 0 12px rgba(0,191,255,0.4);
+  backdrop-filter: blur(2px);
+  pointer-events: auto;
+  outline: none;
+  text-align: center;
+}
+
+.cta-button:hover,
+.cta-button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px #00bfff, 0 0 40px #00bfff;
+  background: rgba(0, 191, 255, 0.1);
+}
+
+.cta-button:focus-visible {
+  outline: 2px solid #00FFE0;
+  outline-offset: 4px;
+}
+
+/* subtext positioned after button */
+.subtext-italic {
+  font-style: italic;
+  font-size: clamp(14px, 2vw, 20px);
+  color: #eef9ff;
+  text-shadow: 0 0 6px #00bfff99;
+  text-align: center;
+  width: 100%;
+  padding: 0 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2vh;          
+}
+
+/* content wrapper for screen2 flex column */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.button-wrapper {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .particle {
+    animation: none !important;
+    opacity: 0.15;
+  }
+  #screen1, #screen2 {
+    transition: none;
+  }
+  .cta-button {
+    transition: none;
+  }
+  .headline {
+    transition: none;
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* float animation keyframes */
+@keyframes floatUp {
+  0% { transform: translateY(0) translateX(0); opacity: 0.3; }
+  10% { opacity: 0.9; }
+  90% { opacity: 0.7; }
+  100% { transform: translateY(-120vh) translateX(var(--drift, 0px)); opacity: 0; }
+}
