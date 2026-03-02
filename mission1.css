@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  height: 100vh;
+  background: url('devlit.png') no-repeat center center/cover;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(2,6,10,0.96) 0%, rgba(2,6,10,0.96) 100%);
+  z-index: 1;
+}
+
+/* Mission Card */
+.mission-card {
+  position: relative;
+  z-index: 2;
+  background: rgba(0,0,0,0.62);
+  border-radius: 1rem;
+  box-shadow:
+    0 0 10px #00bfff,
+    0 0 20px #00bfff,
+    0 0 40px #00bfff;
+  padding: 1.6rem;
+  max-width: 650px;
+  max-height: 80vh;
+  overflow-y: auto;
+  color: #e8fbff;
+  text-align: left;
+  animation: pulse 2s infinite alternate;
+}
+
+.mission-card h2, .mission-card h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.mission-card p, .mission-card li {
+  margin: 0.4rem 0;
+  line-height: 1.5;
+}
+
+.mission-card ul {
+  padding-left: 1.4rem;
+}
+
+/* Buttons */
+.submit-button {
+  margin-top: 1.4rem;
+  padding: 0.8rem 1.6rem;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #00bfff; /* Electric blue */
+  background: rgba(0,10,10,0.34);
+  border: 2px solid #00bfff;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.submit-button:hover {
+  box-shadow:
+    0 0 20px #00bfff,
+    0 0 40px #00bfff,
+    0 0 60px #00bfff;
+  transform: scale(1.05);
+}
+
+/* Glow pulse animation for card */
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 40px #00bfff; }
+  100% { box-shadow: 0 0 15px #00bfff, 0 0 30px #00bfff, 0 0 60px #00bfff; }
+}
+
+/* Confirmation Card */
+.confirm-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.85);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px #00bfff, 0 0 40px #00bfff;
+  text-align: center;
+  color: #e8fbff;
+  z-index: 10;
+  display: none;
+}
+
+.confirm-card p {
+  margin-bottom: 1.4rem;
+}
+
+.close-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #00bfff; /* Electric blue */
+  background: rgba(0,10,10,0.34);
+  border: 2px solid #00bfff;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
+}
+
+.close-button:hover {
+  box-shadow:
+    0 0 20px #00bfff,
+    0 0 40px #00bfff,
+    0 0 60px #00bfff;
+  transform: scale(1.05);
+}
